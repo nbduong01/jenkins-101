@@ -1,4 +1,53 @@
-pipeline {
+pipeline{
+
+	agent any
+
+	environment {
+		DOCKERHUB_CREDENTIALS=credentials('docker-hub')
+		WORDSPACE=jenkins-101
+	}
+
+	stages {
+	    
+	    stage('gitclone') {
+
+			steps {
+				git 'https://github.com/nbduong01/jenkins-101.git/'
+			}
+		}
+
+		stage('Build') {
+
+			steps {
+				dir("$(env.WORDSPACE)/s05/python-simple-app")
+				sh 'docker build -t pythonspapp:latest .'
+			}
+		}
+
+		stage('Login') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+
+		stage('Push') {
+
+			steps {
+				sh 'docker push thetips4you/nodeapp_test:latest'
+			}
+		}
+	}
+
+	post {
+		always {
+			sh 'docker logout'
+		}
+	}
+
+}
+
+/*pipeline {
     agent any
     stages {
         stage('build') {
@@ -24,7 +73,4 @@ pipeline {
             steps {
                 sh 'fuser -k 8000/tcp'
             }
-    */    
-
-    }
-}
+*/
