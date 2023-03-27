@@ -33,7 +33,8 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push thetips4you/nodeapp_test:latest'
+				sh 'docker tag pythonspapp:latest nbduong/pythonspapp:latest'
+				sh 'docker push nbduong/pythonspapp:latest'
 			}
 		}
 	}
