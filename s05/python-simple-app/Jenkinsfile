@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                sh 'apt install python3-pip -y'
                 sh 'pip3 install -r s05/python-simple-app/requirements.txt'
             }
         }
