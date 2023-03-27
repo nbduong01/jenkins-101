@@ -22,7 +22,7 @@ pipeline {
 
         stage('cleanup') {
             steps {
-                sh 'fuser -k 8000/tcp'
+                sh 'sudo fuser -k 8000/tcp'
             }
         }
 
