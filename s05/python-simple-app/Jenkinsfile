@@ -8,13 +8,13 @@ pipeline {
                 sh 'docker build -t apppysimple .'
             }
         }
-        stage('run') {
+    /*  stage('run') {
             steps {
                 sh 'python3 s05/python-simple-app/app.py &'
             }
         }
 
-    /*     stage('') {
+       stage('') {
             steps {
                 sh 'sleep 60 && curl -s localhost:8000'
             }
