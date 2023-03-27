@@ -11,14 +11,13 @@ pipeline{
 	    stage('gitclone') {
 
 			steps {
-				git clone 'https://github.com/nbduong01/jenkins-101.git/'
+				git 'https://github.com/nbduong01/jenkins-101.git/'
 			}
 		}
 
 		stage('Build') {
 
 			steps {
-				sh 'cd /var/lib/jenkins/workspace/Python-pipline/s05/python-simple-app'
 				sh 'docker build -t pythonspapp:latest .'
 			}
 		}
