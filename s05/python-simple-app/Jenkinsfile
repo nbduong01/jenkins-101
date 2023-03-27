@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker { 
-            image 'python:3-alpine' 
-            args '-u root'
-            }
-    }
+    agent any
     stages {
         stage('build') {
             steps {
@@ -12,7 +7,6 @@ pipeline {
                 sh 'docker build -t apppysimple .'
             }
         }
-
         stage('run') {
             steps {
                 sh 'python3 s05/python-simple-app/app.py &'
