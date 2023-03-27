@@ -12,7 +12,7 @@ pipeline {
 
         stage('run') {
             steps {
-                sh 'sudo python3 s05/python-simple-app/app.py &'
+                sh 'python3 s05/python-simple-app/app.py &'
             }
         }
 
@@ -24,7 +24,7 @@ pipeline {
 
         stage('cleanup') {
             steps {
-                sh 'sudo fuser -k 8000/tcp'
+                sh 'fuser -k 8000/tcp'
             }
         }
 
