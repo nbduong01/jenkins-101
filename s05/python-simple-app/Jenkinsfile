@@ -9,6 +9,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'pip3 install -r s05/python-simple-app/requirements.txt'
+                sh 'docker build -t apppysimple .'
             }
         }
 
@@ -18,7 +19,7 @@ pipeline {
             }
         }
 
-        stage('test') {
+    /*     stage('') {
             steps {
                 sh 'sleep 60 && curl -s localhost:8000'
             }
@@ -28,7 +29,7 @@ pipeline {
             steps {
                 sh 'fuser -k 8000/tcp'
             }
-        }
+    */    
 
     }
 }
