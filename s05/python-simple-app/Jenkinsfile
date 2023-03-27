@@ -4,7 +4,6 @@ pipeline{
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('docker-hub')
-		WORDSPACE=jenkins-101
 	}
 
 	stages {
@@ -19,7 +18,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				dir("$(env.WORDSPACE)/s05/python-simple-app")
+				sh 'cd /var/lib/jenkins/workspace/Python-pipline/s05/python-simple-app'
 				sh 'docker build -t pythonspapp:latest .'
 			}
 		}
