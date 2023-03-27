@@ -18,6 +18,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
+				dir('/var/lib/jenkins/workspace/Python-pipline/s05/python-simple-app')
 				sh 'docker build -t pythonspapp:latest .'
 			}
 		}
