@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'pip3 install -r s05/python-simple-app/requirements.txt'
+                dir("jenkins-101/s05/python-simple-app/")
                 sh 'docker build -t apppysimple .'
             }
         }
