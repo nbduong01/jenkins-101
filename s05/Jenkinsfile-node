@@ -7,6 +7,11 @@ pipeline {
             steps {
                 sh 'node --version'
             }
+            post {
+                always {
+                    curl -s -X POST https://api.telegram.org/bot[5994353466:AAEZ9_1zRxYDqO32KzPPoYi-2QixytKVnm0]/sendMessage -d chat_id=[ID] -d text="your message"
+                }                
+            }
         }
     }
 }
