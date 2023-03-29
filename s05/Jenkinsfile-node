@@ -9,7 +9,7 @@ pipeline {
             }
             post {
                 always {
-                    curl -s -XPOST https://api.telegram.org/bot[5994353466:AAEZ9_1zRxYDqO32KzPPoYi-2QixytKVnm0]/sendMessage -d chat_id=[ID] -d text="your message"
+                    curl -s -XPOST https://api.telegram.org/bot5994353466:AAEZ9_1zRxYDqO32KzPPoYi-2QixytKVnm0/sendMessage -d chat_id=5994353466 -d text="your message"
                 }                
             }
         }
